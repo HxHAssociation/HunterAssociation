@@ -7,16 +7,77 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Imposta il box-sizing globale */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Stile per l'header */
 header {
     background: #000;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
+    width: 100%; /* Estende l'header su tutta la larghezza */
+    margin: 0 auto; /* Evita spazi laterali */
 }
 
+/* Stile per il logo */
 header .logo h1 {
     margin: 0;
     font-size: 2rem;
+    text-align: center;
+}
+
+/* Stile per il menu */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center; /* Allinea gli elementi al centro */
+    flex-wrap: wrap; /* Permette di andare a capo su schermi piccoli */
+}
+
+header nav ul li {
+    margin: 0 1rem; /* Distanza tra gli elementi */
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #f39c12;
+}
+
+/* Media query per schermi piccoli */
+@media (max-width: 768px) {
+    header {
+        padding: 0.5rem 1rem; /* Riduce i padding */
+    }
+
+    header .logo h1 {
+        font-size: 1.5rem; /* Riduce la dimensione del testo */
+    }
+
+    header nav ul {
+        flex-direction: column; /* Dispone gli elementi in colonna */
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 0.5rem 0; /* Aggiunge spazio tra gli elementi */
+    }
+
+    header nav ul li a {
+        font-size: 1rem; /* Testo leggibile anche su telefoni */
+    }
 }
 
 nav ul {
