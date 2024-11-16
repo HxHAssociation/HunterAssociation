@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum - Associazione dei Cacciatori</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS per la sezione Forum */
+        .forum {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .post {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .post strong {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        .post p {
+            color: #7f8c8d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .post .content {
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        .post .answers {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #27ae60;
+        }
+
+        .post p strong {
+            color: #2980b9;
+        }
+
+        .post .author, .post .date {
+            color: #95a5a6;
+            font-style: italic;
+        }
+
+        /* Triangolo per espandere/collassare risposte */
+        .toggle-responses {
+            cursor: pointer;
+            font-size: 20px;
+            color: #3498db;
+            user-select: none;
+            margin-left: 10px;
+        }
+
+        .responses {
+            display: none;
+            margin-top: 10px;
+        }
+
+        .response-item {
+            padding: 10px;
+            background-color: #ecf0f1;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+
+        /* Stile per la casella di risposta */
+        .response-box {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            height: 80px;
+            resize: vertical;
+        }
+
+        .send-response-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .send-response-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .confirmation-message {
+            margin-top: 10px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Forum</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="reserved.html">Area Riservata</a></li>
+                <li><a href="hunters.html">Lista Cacciatori</a></li>
+                <li><a href="missions.html">Database Missioni</a></li>
+                <li><a href="index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="forum">
+        <h2>Forum dell'Associazione dei Cacciatori</h2>
+        
+        <!-- Primo post -->
+        <div class="post" id="post1">
+            <strong>Titolo:</strong> Richiesta di informazioni su missioni nel Continente Oscuro
+            <p><strong>Autore:</strong> Hunter_Explorer</p>
+            <p><strong>Data:</strong> 16 Novembre 2024</p>
+            <p><strong>Contenuto:</strong> Ciao a tutti! Sono un cacciatore alle prime armi e sto cercando informazioni sulle missioni nel Continente Oscuro. Qualcuno ha esperienza in quella zona? Ci sono pericoli da sapere prima di partire? Ogni consiglio è ben accetto!</p>
+            <p><strong>Risposte:</strong> <span id="risposte-post1">5</span>
+                <!-- Triangolo per espandere le risposte -->
+                <span class="toggle-responses" onclick="toggleResponses(1)">&#9660; Mostra risposte</span>
+            </p>
+            <div class="responses" id="responses1">
+                <div class="response-item">Risposta 1: Mi sono trovato bene nel Continente Oscuro, ma è pieno di pericoli. Tieni alta la guardia!</div>
+                <div class="response-item">Risposta 2: Il Continente Oscuro è davvero pericoloso, ti consiglio di andare preparato.</div>
+                <div class="response-item">Risposta 3: Assicurati di avere una buona guida, molte zone sono inesplorate e rischiose.</div>
+                <div class="response-item">Risposta 4: Porta sempre con te delle provviste e un buon equipaggiamento per il combattimento.</div>
+                <div class="response-item">Risposta 5: Attento ai predatori locali, possono essere più forti di quanto pensi.</div>
+            </div>
+            
+            <!-- Casella di risposta -->
+            <textarea class="response-box" id="response-text1" placeholder="Scrivi la tua risposta..."></textarea>
+            <br>
+            <button class="send-response-btn" onclick="sendResponse(1)">Invia risposta</button>
+            <p id="confirmation-message1" class="confirmation-message"></p>
+        </div>
+        <!-- Post: Offerta di pagamento per un servizio di ricerca -->
+<div class="post" id="post5">
+    <strong>Titolo:</strong> Offerta di pagamento per un servizio di ricerca
+    <p><strong>Autore:</strong> MoneyHunter</p>
+    <p><strong>Data:</strong> 15 Novembre 2024</p>
+    <p><strong>Contenuto:</strong> Offro una ricompensa di 100.000 jenn per chiunque possa recuperare un oggetto specifico in una missione di recupero a Zaban. Si tratta di un antico libro di magia che è stato rubato. Chiunque è interessato mi contatti in privato per maggiori dettagli.</p>
+    <p><strong>Risposte:</strong> <span id="risposte-post5">2</span>
+        <!-- Triangolo per espandere le risposte -->
+        <span class="toggle-responses" onclick="toggleResponses(5)">&#9660; Mostra risposte</span>
+    </p>
+    <div class="responses" id="responses5">
+        <div class="response-item">Risposta 1: Sono interessato! Ho esperienza nel recupero di oggetti rari e posso affrontare Zaban senza problemi.</div>
+        <div class="response-item">Risposta 2: Ho sentito parlare di quel libro, ma Zaban è un posto pericoloso. Dovresti fare attenzione a chi invii.</div>
+    </div>
+    
+    <!-- Casella di risposta -->
+    <textarea class="response-box" id="response-text5" placeholder="Scrivi la tua risposta..."></textarea>
+    <br>
+    <button class="send-response-btn" onclick="sendResponse(5)">Invia risposta</button>
+    <p id="confirmation-message5" class="confirmation-message"></p>
+</div>
+
+<!-- Post: Vendita di oggetti rari -->
+<div class="post" id="post6">
+    <strong>Titolo:</strong> Vendita di oggetti rari
+    <p><strong>Autore:</strong> Rare_Item_Seller</p>
+    <p><strong>Data:</strong> 14 Novembre 2024</p>
+    <p><strong>Contenuto:</strong> Vendo un'arma magica di alta qualità: "Spada del Drago Fiammeggiante". Ottima per cacciatori di mostri di livello avanzato. Prezzo: 500.000 jenn. Se interessati, contattatemi per più informazioni.</p>
+    <p><strong>Risposte:</strong> <span id="risposte-post6">3</span>
+        <!-- Triangolo per espandere le risposte -->
+        <span class="toggle-responses" onclick="toggleResponses(6)">&#9660; Mostra risposte</span>
+    </p>
+    <div class="responses" id="responses6">
+        <div class="response-item">Risposta 1: Interessato! La spada sembra fantastica, mi servirebbe per una missione ad alta difficoltà.</div>
+        <div class="response-item">Risposta 2: Che tipo di danno fa questa spada? È adatta anche per la caccia ai draghi?</div>
+        <div class="response-item">Risposta 3: Posso venire a Zaban per vederla in azione? Fammi sapere dove trovarla.</div>
+    </div>
+    
+    <!-- Casella di risposta -->
+    <textarea class="response-box" id="response-text6" placeholder="Scrivi la tua risposta..."></textarea>
+    <br>
+    <button class="send-response-btn" onclick="sendResponse(6)">Invia risposta</button>
+    <p id="confirmation-message6" class="confirmation-message"></p>
+</div>
+<!-- Post: Necessito di un team per missione di recupero -->
+<div class="post" id="post7">
+    <strong>Titolo:</strong> Necessito di un team per missione di recupero
+    <p><strong>Autore:</strong> Gon_Future</p>
+    <p><strong>Data:</strong> 13 Novembre 2024</p>
+    <p><strong>Contenuto:</strong> Sto cercando un gruppo di cacciatori esperti per una missione di recupero in una zona infestata da creature pericolose. È necessario un alto livello di cooperazione e abilità nel Nen. Se qualcuno è interessato a unirsi, rispondete a questo post.</p>
+    <p><strong>Risposte:</strong> <span id="risposte-post7">4</span>
+        <!-- Triangolo per espandere le risposte -->
+        <span class="toggle-responses" onclick="toggleResponses(7)">&#9660; Mostra risposte</span>
+    </p>
+    <div class="responses" id="responses7">
+        <div class="response-item">Risposta 1: Sono un esperto nell'uso del Nen, posso unirmi al team. Quali sono i dettagli della missione?</div>
+        <div class="response-item">Risposta 2: Ho esperienza nelle missioni di recupero. Sono pronto a partire, fammi sapere quando!</div>
+        <div class="response-item">Risposta 3: Sono un cacciatore di mostri, posso essere utile per eliminare le creature pericolose. Contattami per ulteriori informazioni.</div>
+        <div class="response-item">Risposta 4: Mi interessa molto, ma vorrei sapere più dettagli sulla zona e sulle creature da affrontare.</div>
+    </div>
+    
+    <!-- Casella di risposta -->
+    <textarea class="response-box" id="response-text7" placeholder="Scrivi la tua risposta..."></textarea>
+    <br>
+    <button class="send-response-btn" onclick="sendResponse(7)">Invia risposta</button>
+    <p id="confirmation-message7" class="confirmation-message"></p>
+</div>
+<!-- Post: Offro servizi di consulenza Nen -->
+<div class="post" id="post8">
+    <strong>Titolo:</strong> Offro servizi di consulenza Nen
+    <p><strong>Autore:</strong> Nen_Master</p>
+    <p><strong>Data:</strong> 12 Novembre 2024</p>
+    <p><strong>Contenuto:</strong> Sono un esperto di Nen e offro consulenze personalizzate per chi vuole migliorare le proprie abilità. Offro lezioni su come affinare la tecnica del Nen, utilizzando la strategia giusta. Prezzo: 50.000 jenn per sessione. Contattatemi se interessati.</p>
+    <p><strong>Risposte:</strong> <span id="risposte-post8">3</span>
+        <!-- Triangolo per espandere le risposte -->
+        <span class="toggle-responses" onclick="toggleResponses(8)">&#9660; Mostra risposte</span>
+    </p>
+    <div class="responses" id="responses8">
+        <div class="response-item">Risposta 1: Ho sempre avuto difficoltà con la tecnica del Nen, mi interesserebbe una consulenza per migliorare.</div>
+        <div class="response-item">Risposta 2: Sono interessato, vorrei sapere di più sui tuoi metodi di insegnamento.</div>
+        <div class="response-item">Risposta 3: Ho già una buona conoscenza del Nen, ma credo che un consiglio esperto possa farmi progredire ulteriormente.</div>
+    </div>
+    
+    <!-- Casella di risposta -->
+    <textarea class="response-box" id="response-text8" placeholder="Scrivi la tua risposta..."></textarea>
+    <br>
+    <button class="send-response-btn" onclick="sendResponse(8)">Invia risposta</button>
+    <p id="confirmation-message8" class="confirmation-message"></p>
+</div>
+        <!-- JavaScript -->
+        <script>
+            // Funzione per inviare una risposta
+            function sendResponse(postId) {
+                var responseText = document.getElementById('response-text' + postId).value;
+                var confirmationMessage = document.getElementById('confirmation-message' + postId);
+                var responseCountElement = document.getElementById('risposte-post' + postId);
+                var currentResponseCount = parseInt(responseCountElement.innerText);
+
+                // Verifica se è stata scritta una risposta
+                if (responseText.trim() !== "") {
+                    // Aggiungi la risposta inviata sotto il post
+                    var newResponse = document.createElement("div");
+                    newResponse.classList.add("response-item");
+                    newResponse.textContent = "Risposta " + (currentResponseCount + 1) + ": " + responseText;
+                    document.getElementById('responses' + postId).appendChild(newResponse);
+
+                    // Aumenta il numero di risposte
+                    responseCountElement.innerText = currentResponseCount + 1;
+
+                    // Mostra il messaggio di conferma
+                    confirmationMessage.innerText = "Risposta inviata con successo!";
+                    // Pulisci la casella di risposta
+                    document.getElementById('response-text' + postId).value = "";
+                } else {
+                    // Se la casella è vuota, non invia la risposta
+                    confirmationMessage.innerText = "Per favore, scrivi una risposta prima di inviare.";
+                    confirmationMessage.style.color = "#e74c3c"; // Messaggio di errore in rosso
+                }
+            }
+
+            // Funzione per aprire/chiudere le risposte
+            function toggleResponses(postId) {
+                var responses = document.getElementById('responses' + postId);
+                var toggleButton = document.querySelector('#post' + postId + ' .toggle-responses');
+                
+                if (responses.style.display === "none" || responses.style.display === "") {
+                    responses.style.display = "block";
+                    toggleButton.innerHTML = "&#9650; Nascondi risposte";
+                } else {
+                    responses.style.display = "none";
+                    toggleButton.innerHTML = "&#9660; Mostra risposte";
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>
